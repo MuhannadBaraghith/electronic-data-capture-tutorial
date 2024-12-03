@@ -12,14 +12,21 @@
         <h1>Electronic Data Capture System</h1>
         <p>Fill in the patient's medical details for pseudonymization</p>
         
-        <!-- Form to capture patient data -->
         <form action="/startSession" method="POST">
-            <!-- Patient ID Field -->
             <div class="input-group">
                 <label for="patientId">Patient ID*</label>
-                <input type="text" name="patientId" value="<%= patientId ? patientId : '' %>" placeholder="Generated Automatically" readonly>
+                <div class="input-with-button">
+                    <input type="text" name="patientId" value="<%= patientId ? patientId : '' %>" placeholder="Generated Automatically" readonly>
+                    <button type="submit" id="generateIdButton">Create Pseudonym</button>
+                </div>
             </div>
+        </form>
 
+
+        <!-- Form to capture patient data -->
+        <form action="/patient-data" method="POST">
+          
+            <input type="hidden" name="patientId" value="<%= typeof patientId !== 'undefined' ? patientId : '' %>">
             <!-- Smoking History Field -->
             <div class="input-group">
                 <label for="smokingHistory">Smoking History</label>
@@ -64,11 +71,15 @@
                 <textarea name="medicalConditions" id="medicalConditions" placeholder="Enter relevant medical conditions (e.g., hypertension, diabetes)"></textarea>
             </div>
 
-            <!-- Button to create pseudonym -->
-            <div class="input-group">
-                <button type="submit">Create Pseudonym</button>
-            </div>
+            <% if (typeof patientId === 'undefined' || !patientId) { %>
+                <div class="error-message">Please generate a patient PID before submitting!</div>
+            <% } %>
+            <button type="submit" id="generateIdButton" <%= (!patientId) ? 'disabled' : '' %>>Submit</button>
         </form>
+        <!-- Form for creating PID -->
+       
     </div>
+
+   
 </body>
 </html>

@@ -24,9 +24,13 @@ Ensure you have a Dockerfile in the root directory and run:
 
 3. **Start the services with Docker Compose**
 
-        Docker compose up
+           Docker compose -f mainzelliste.docker.conf up
 
-4. **Viewing the Services**
+4. **Shut down the services with Docker Compose**
+
+           Docker compose -f mainzelliste.docker.conf down
+
+5. **Viewing the Services**
 
 **mainzelliste service**: Open your browser and navigate to http://localhost:8080. You should see the homepage displaying: "This is Mainzelliste running version 1.13-SNAPSHOT-6a9d42ad59 for Mainzelliste."
 

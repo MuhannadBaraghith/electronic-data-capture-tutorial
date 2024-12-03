@@ -2,6 +2,7 @@ const express = require('express')
 
 const tokenController = require('./controllers/tokenController');
 const fillTextFieldController = require('./controllers/fillTextFieldController');
+const patientDataController = require('./controllers/patientDataController');
 
 const app = express()
 
@@ -23,6 +24,8 @@ app.get('/', (req, res) => {
 app.use('/startSession', tokenController);
 
 app.use('/create-record/get', fillTextFieldController);
+
+app.use('/patient-data', patientDataController);
 
 
 app.listen(port, () => {

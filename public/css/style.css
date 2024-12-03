@@ -23,7 +23,7 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-h1 {
+h1, h2 {
     text-align: center;
     margin-bottom: 20px;
     color: #2c3e50;
@@ -97,4 +97,65 @@ button:hover {
     button {
         font-size: 14px;
     }
+}
+
+/* Back to Form link styling */
+div a.button {
+    display: inline-block;
+    padding: 12px 20px;
+    background-color: #3498db;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 16px;
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+div a.button:hover {
+    background-color: #2980b9;
+    transform: translateY(-2px);
+}
+
+div a.button:active {
+    transform: translateY(0);
+}
+
+.error-message {
+    color: #dc3545;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    border-radius: 4px;
+    padding: 10px;
+    margin: 10px 0;
+    text-align: center;
+}
+
+button[disabled] {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.input-with-button {
+    display: flex;
+    align-items: stretch;
+    gap: 10px;
+    width: 100%;
+}
+
+.input-with-button input {
+    flex: 0 0 60%;
+    width: 60%;
+    margin: 0;
+    height: 40px;
+}
+
+.input-with-button button {
+    flex: 0 0 40%;
+    width: 40%;
+    white-space: nowrap;
+    height: 40px;
+    margin: 0;
+    padding: 0 15px;
 }
